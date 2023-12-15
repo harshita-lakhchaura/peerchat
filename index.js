@@ -21,16 +21,16 @@ app.get("/", (req, res) =>{
 io.on('connection',(socket)=>{
     socket.emit('me',socket.id);
 
-    socket.on('disconnet',()=>{
-        socket.broadcast.emit('Call ended');
+    socket.on('disconnect',()=>{
+        socket.broadcast.emit('callEnded');
     })
 
     socket.on('callUser',(userToCall, signalData, from, name)=>{
-        io.to(userToCall).emit('Call user',{signal:signalData, from, name});
+        io.to(userToCall).emit('callUser',{signal:signalData, from, name});
     })
 
     socket.io('answerCall',(data)=>{
-        io.to(data).emit('call accepted',data.signal);
+        io.to(data).emit('callAccepted',data.signal);
     })
 })
 
