@@ -35,7 +35,7 @@ function App() {
   const classes=useStyles();
   return (
     <div className={classes.wrapper}>
-      <AppBar position="station" color="inherit" className={classes.appBar}>
+      <AppBar position="static" color="inherit" className={classes.appBar}>
         <Typography variant="h4" align="center" > Peer Chat </Typography>
       </AppBar>
 

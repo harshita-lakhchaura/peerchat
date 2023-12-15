@@ -29,7 +29,7 @@ io.on('connection',(socket)=>{
         io.to(userToCall).emit('callUser',{signal:signalData, from, name});
     })
 
-    socket.io('answerCall',(data)=>{
+    socket.on('answerCall',(data)=>{
         io.to(data).emit('callAccepted',data.signal);
     })
 })
